@@ -12,7 +12,6 @@ function ToDoList(){
     const [todoText, setTodoText] = useState("")    
 
     const endpoint = "http://localhost:3000/todos/"
-    
     const savedTodos = useAPI(endpoint)
 
     useEffect(() => {
@@ -45,8 +44,8 @@ function ToDoList(){
             <Table striped bordered hover>
             <thead>
                 <tr>                
-                <th>To Do</th>
-                <th>Delete</th>
+                    <th>To Do</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
@@ -56,9 +55,7 @@ function ToDoList(){
                         <td onClick={async () => {                            
                             await axios.delete(endpoint + todo.id)                           
                             dispatch({type:'delete', payload:todo})
-                        }}>
-                            <Button variant="link">Delete</Button>
-                        </td>
+                        }}><Button variant="link">Delete</Button></td>
                     </tr>
                 ))}                
             </tbody>
